@@ -10,7 +10,6 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import poslovne.aplikacije.messaging.MessagingReportingService;
 
 @Configuration
 public class RabbitMQConfigurator {
@@ -18,6 +17,10 @@ public class RabbitMQConfigurator {
 	  public static final String PROIZVODI_TOPIC_EXCHANGE_NAME = "proizvodi-events-exchange";
 
 	  public static final String PROIZVODI_SERVICE_QUEUE = "proizvodi-service-queue";
+  
+	public static final String APPOINTMENTS_TOPIC_EXCHANGE_NAME = "appointments-events-exchange";
+
+	public static final String APPOINTMENTS_SERVICE_QUEUE = "appointments-service-queue";
 	
 	  @Bean
 	  Queue queue() {
@@ -44,8 +47,34 @@ public class RabbitMQConfigurator {
 	    return container;
 	  }
 
-	  @Bean
-	  MessageListenerAdapter listenerAdapter(MessagingReportingService receiver) {
-	    return new MessageListenerAdapter(receiver, "receiveMessage");
-	  }
+		// --- appointments beans ---
+		@Bean
+		Queue appointmentsQueue() {
+			return new Queue(APPOINTMENTS_SERVICE_QUEUE, false);
+		}
+
+		@Bean
+		TopicExchange appointmentsExchange() {
+			return new TopicExchange(APPOINTMENTS_TOPIC_EXCHANGE_NAME);
+		}
+
+		@Bean
+		Binding appointmentsBinding(Queue appointmentsQueue, TopicExchange appointmentsExchange) {
+			return BindingBuilder.bind(appointmentsQueue).to(appointmentsExchange).with("appointments.events.#");
+		}
+
+		@Bean
+		SimpleMessageListenerContainer appointmentsContainer(ConnectionFactory connectionFactory,
+				MessageListenerAdapter appointmentsListenerAdapter) {
+			SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+			container.setConnectionFactory(connectionFactory);
+			container.setQueueNames(APPOINTMENTS_SERVICE_QUEUE);
+			container.setMessageListener(appointmentsListenerAdapter);
+			return container;
+		}
+
+		@Bean
+		MessageListenerAdapter appointmentsListenerAdapter(poslovne.aplikacije.messaging.AppointmentEventListener receiver) {
+			return new MessageListenerAdapter(receiver, "receiveMessage");
+		}
 }

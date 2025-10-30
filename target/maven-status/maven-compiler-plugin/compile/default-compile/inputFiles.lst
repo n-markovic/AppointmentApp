@@ -1,18 +1,29 @@
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\MessagingRabbitmqApplication.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\messaging\OrderEvent.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\messaging\ProizvodEvent.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodIsNullAdvice.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\servisi\ProizvodService.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\RabbitMQConfigurator.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\Proizvod.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodNotFoundAdvice.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\KategorijeProizvoda.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\servisi\ProizvodRestService.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodNotFoundException.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\JedinicaMere.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\InitialLoad.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodIsNullException.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\Runner.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\Valuta.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\repository\ProizvodRepository.java
-D:\FINK\Poslovne aplikacije\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\messaging\MessagingReportingService.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\Appointment.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\KategorijeProizvoda.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\RabbitMQConfigurator.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\JedinicaMere.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\MessagingRabbitmqApplication.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\servisi\AppointmentREST.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\Patient.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\Proizvod.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\servisi\ProizvodService.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodIsNullAdvice.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\Doctor.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodNotFoundAdvice.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodNotFoundException.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\proizvodi\Valuta.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\AppointmentEventListener.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\Runner.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\AppointmentRepository.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\AppointmentRequestDTO.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\repository\ProizvodRepository.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\PatientRepository.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\InitialLoad.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\messaging\OrderEvent.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\messaging\ProizvodEvent.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\AppointmentStatus.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\AppointmentRequestEvent.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\AppointmentService.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\appointments\DoctorRepository.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\exceptions\ProizvodIsNullException.java
+C:\Users\Admin\Desktop\Spring-Messaging-RabbitMQSimple\Spring-Messaging-RabbitMQSimple\project\src\main\java\poslovne\aplikacije\messaging\MessagingReportingService.java
