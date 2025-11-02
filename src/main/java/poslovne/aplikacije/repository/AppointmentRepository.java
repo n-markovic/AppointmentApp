@@ -1,11 +1,9 @@
 package poslovne.aplikacije.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import poslovne.aplikacije.appointments.Appointment;
@@ -21,17 +19,3 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 
 	public List<Appointment> findAll();
 }
-
-/*
-@Repository
-public interface ProizvodRepository extends JpaRepository<Proizvod, Long> {
-	public List<Proizvod> findAll();
-	
-	public List<Proizvod> findByKat(KategorijeProizvoda kat);
-
-	public Proizvod save(Proizvod noviProizvod);
-
-	public Optional<Proizvod> findById(long id);
-	
-	public void deleteById(Long id);
-}*/

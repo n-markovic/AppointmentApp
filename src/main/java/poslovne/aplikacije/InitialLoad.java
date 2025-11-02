@@ -29,7 +29,7 @@ public class InitialLoad {
                 patientRepository.save(new Patient("Jelena", "Jankovic"));
             }
 
-            log.info("All data loaded.");
+            log.info("Svi podaci su ucitani.");
         };
     }
 }

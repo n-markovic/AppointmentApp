@@ -4,8 +4,8 @@ public class AppointmentRequestDTO {
     private Long doctorId;
     private String patientFirstName;
     private String patientLastName;
-    private String appointmentDate; // ISO_LOCAL_DATE string e.g. 2025-10-30
-    private String appointmentTime; // ISO_LOCAL_TIME string e.g. 14:30
+    private String appointmentDate; 
+    private String appointmentTime;
 
     public Long getDoctorId() {
         return doctorId;

@@ -1,6 +1,6 @@
 package poslovne.aplikacije.servisi;
 
-import java.time.format.DateTimeParseException;
+// date/time parsing handled by DateTimeUtils
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,6 @@ public class AppointmentService {
 
     @Transactional
     public Appointment createRequest(AppointmentRequestDTO dto) {
-        // simple patient lookup/create by first+last name
         Patient patient = patientRepository.findByFirstNameAndLastName(dto.getPatientFirstName(), dto.getPatientLastName())
                 .orElseGet(() -> {
                     Patient p = new Patient(dto.getPatientFirstName(), dto.getPatientLastName());
@@ -46,18 +45,22 @@ public class AppointmentService {
         java.time.LocalDate date;
         java.time.LocalTime time;
         try {
-            date = java.time.LocalDate.parse(dto.getAppointmentDate());
-            time = java.time.LocalTime.parse(dto.getAppointmentTime());
-        } catch (DateTimeParseException ex) {
-            throw new IllegalArgumentException("Invalid appointmentDate or appointmentTime format. Use ISO date/time e.g. 2025-10-29 and 14:30");
+            date = poslovne.aplikacije.util.DateTimeUtils.parseDate(dto.getAppointmentDate());
+            time = poslovne.aplikacije.util.DateTimeUtils.parseTime(dto.getAppointmentTime());
+        } catch (java.time.format.DateTimeParseException ex) {
+            throw new IllegalArgumentException("Invalid appointmentDate or appointmentTime format. Use yyyy-MM-dd (e.g. 2025-11-03) and HH:mm (e.g. 14:30)");
         }
 
         Appointment appointment = new Appointment(doctor, patient, date, time);
         appointment = appointmentRepository.save(appointment);
 
-        // publish event for async processing
     AppointmentRequestEvent evt = new AppointmentRequestEvent(appointment.getId(), doctor.getId(), dto.getAppointmentDate(), dto.getAppointmentTime());
         rabbitTemplate.convertAndSend(RabbitMQConfigurator.APPOINTMENTS_TOPIC_EXCHANGE_NAME, "appointments.events.request", evt);
+
+    // For a "request" notification we leave status null so listeners treat it as a request (not a result).
+    poslovne.aplikacije.messaging.NotificationMessage n = new poslovne.aplikacije.messaging.NotificationMessage(
+        appointment.getId(), doctor.getId(), patient.getFirstName(), patient.getLastName(), dto.getAppointmentDate(), dto.getAppointmentTime(), null);
+    rabbitTemplate.convertAndSend(RabbitMQConfigurator.NOTIFICATIONS_TOPIC_EXCHANGE_NAME, "appointments.notifications.request", n);
 
         return appointment;
     }
