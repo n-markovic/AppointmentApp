@@ -6,8 +6,8 @@ public class AppointmentRequestEvent implements Serializable {
 
     private Long appointmentId;
     private Long doctorId;
-    private String appointmentDate; // ISO date string
-    private String appointmentTime; // ISO time string
+    private String appointmentDate; 
+    private String appointmentTime; 
 
     public AppointmentRequestEvent() {}
 

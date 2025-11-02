@@ -1,6 +1,5 @@
 package poslovne.aplikacije.servisi;
 
-// date/time parsing handled by DateTimeUtils
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +56,6 @@ public class AppointmentService {
     AppointmentRequestEvent evt = new AppointmentRequestEvent(appointment.getId(), doctor.getId(), dto.getAppointmentDate(), dto.getAppointmentTime());
         rabbitTemplate.convertAndSend(RabbitMQConfigurator.APPOINTMENTS_TOPIC_EXCHANGE_NAME, "appointments.events.request", evt);
 
-    // For a "request" notification we leave status null so listeners treat it as a request (not a result).
     poslovne.aplikacije.messaging.NotificationMessage n = new poslovne.aplikacije.messaging.NotificationMessage(
         appointment.getId(), doctor.getId(), patient.getFirstName(), patient.getLastName(), dto.getAppointmentDate(), dto.getAppointmentTime(), null);
     rabbitTemplate.convertAndSend(RabbitMQConfigurator.NOTIFICATIONS_TOPIC_EXCHANGE_NAME, "appointments.notifications.request", n);

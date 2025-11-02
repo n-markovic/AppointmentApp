@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
- * Small helper to parse date/time strings with a couple of common formats.
+ * Kako bi se vreme i datum pravilno procitali iz zahteva kotisti se ova funkcija za formatiranje
  */
 public final class DateTimeUtils {
 
@@ -14,11 +14,11 @@ public final class DateTimeUtils {
 
     public static LocalDate parseDate(String s) {
         if (s == null) return null;
-        // Try strict ISO first
+        
         try {
             return LocalDate.parse(s);
         } catch (DateTimeParseException ex) {
-            // try permissive patterns like yyyy-M-d (accepts single-digit month/day)
+            
             DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-M-d");
             try {
                 return LocalDate.parse(s, f);
@@ -33,7 +33,7 @@ public final class DateTimeUtils {
         try {
             return LocalTime.parse(s);
         } catch (DateTimeParseException ex) {
-            // accept H:mm (e.g. 9:05 or 14:30)
+           
             DateTimeFormatter f = DateTimeFormatter.ofPattern("H:mm");
             try {
                 return LocalTime.parse(s, f);

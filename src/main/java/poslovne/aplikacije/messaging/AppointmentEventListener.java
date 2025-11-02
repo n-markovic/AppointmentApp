@@ -19,12 +19,10 @@ public class AppointmentEventListener {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    // Method name wired from RabbitMQConfigurator
     public void handleAppointmentEvent(AppointmentRequestEvent event) {
         if (event == null || event.getAppointmentId() == null) return;
 
         appointmentRepository.findById(event.getAppointmentId()).ifPresent(appointment -> {
-            // simple conflict check: exact same date + time for the same doctor
             java.time.LocalDate date = poslovne.aplikacije.util.DateTimeUtils.parseDate(event.getAppointmentDate());
             java.time.LocalTime time = poslovne.aplikacije.util.DateTimeUtils.parseTime(event.getAppointmentTime());
             Doctor doctor = appointment.getDoctor();
@@ -36,7 +34,6 @@ public class AppointmentEventListener {
             }
             appointmentRepository.save(appointment);
 
-            // publish a result notification so UIs/listeners can show it
             poslovne.aplikacije.messaging.NotificationMessage n = new poslovne.aplikacije.messaging.NotificationMessage(
                     appointment.getId(),
                     doctor.getId(),
